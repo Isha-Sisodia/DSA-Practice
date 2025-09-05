@@ -2,6 +2,8 @@
 
 # Method 1 is using two pointer and then iterate them and swap the values
 
+# https://www.geeksforgeeks.org/problems/reverse-an-array/1
+
 a = [1,2,3,4]
 def reverse_array(a):
   left = 0                             #first pointer
