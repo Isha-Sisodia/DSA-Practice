@@ -23,12 +23,21 @@ print(reverse_array(a))
 
 
 # Method 2 using temporary array
-def reverse_array_tmp(a):
+def reverse_array_tmp1(a):
   temp = []
   for i in range(len(a)-1,-1,-1):
     temp.append(a[i])
   return temp
-print(reverse_array_tmp(a))
+print(reverse_array_tmp1(a))
+
+# in method 2 if i dont want to use append method then
+def array_reverse_tmp2(a):
+  n = len(a)
+  tmp = [0]*n
+  for i in range(n):
+    tmp[i] = a[n-1-i]
+  return tmp
+print(array_reverse_tmp2(a))
 
 
 # Method 3 using swapping elements......similar to method 1 of two pointer...just written differently
