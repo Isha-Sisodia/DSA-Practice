@@ -1,6 +1,7 @@
 #Reverse the Array
 
 # Method 1 is using two pointer and then iterate them and swap the values
+# Best one
 
 # https://www.geeksforgeeks.org/problems/reverse-an-array/1
 
@@ -12,8 +13,43 @@ def reverse_array(a):
     a[left] , a[right] = a[right] ,a[left]        #swap the values
     left += 1                                     #move forward the first pointer by one 
     right -= 1                                    #move backward the last pointer by one 
-reverse_array(a)
+  return a
+print(reverse_array(a))
 # for i in range(len(a)):
 #   print(a[i], end=" ")
-print(a)
+# print(a)
 # print(*a)        # shortcut to print the values clearly in one line without commas and brackets
+
+
+
+# Method 2 using temporary array
+def reverse_array_tmp(a):
+  temp = []
+  for i in range(len(a)-1,-1,-1):
+    temp.append(a[i])
+  return temp
+print(reverse_array_tmp(a))
+
+
+# Method 3 using swapping elements......similar to method 1 of two pointer...just written differently
+def reverse_array_swap(a):
+  n = len(a)
+  for i in range(n//2):
+    a[i] , a[n-1-i] = a[n-1-i] , a[i]
+  return a
+print(reverse_array_swap(a))
+
+
+# Method 4 using slicing
+# b = [1,2,3]
+# print(b[::-1])
+def reverse_array_slice(a):
+  return a[::-1]
+print(reverse_array_slice(a))
+
+
+# Method 5 using reverse function
+def reverse_array_reverse(a):
+  a.reverse()
+  return a
+print(reverse_array_reverse(a))
