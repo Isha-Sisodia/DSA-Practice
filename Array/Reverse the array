@@ -1,0 +1,17 @@
+#Reverse the Array
+
+# Method 1 is using two pointer and then iterate them and swap the values
+
+a = [1,2,3,4]
+def reverse_array(a):
+  left = 0                             #first pointer
+  right = len(a)-1                     #last pointer
+  while left < right:
+    a[left] , a[right] = a[right] ,a[left]        #swap the values
+    left += 1                                     #move forward the first pointer by one 
+    right -= 1                                    #move backward the last pointer by one 
+reverse_array(a)
+# for i in range(len(a)):
+#   print(a[i], end=" ")
+print(a)
+# print(*a)        # shortcut to print the values clearly in one line without commas and brackets
