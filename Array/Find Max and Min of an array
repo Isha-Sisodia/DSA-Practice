@@ -1,1 +1,77 @@
+#https://www.geeksforgeeks.org/problems/find-minimum-and-maximum-element-in-an-array4428/1
 
+
+#method 1 using logic do manually 
+#Simple Logic
+# find min and max element from array
+a = [3,5,4,1,9]
+min_val = a[0]
+max_val = a[0]
+n = len(a)
+for i in range (n):
+  if min_val > a[i]:
+    min_val = a[i]
+  elif max_val < a[i]:
+    max_val = a[i]
+print("min: ",min_val)
+print("max: ",max_val)
+
+
+# find min element from array using function
+
+a = [3,5,4,1,9]
+def min_max_el_array(a):
+  min_val = a[0]
+  max_val = a[0]
+  for i in range (len(a)):
+    if min_val > a[i]:
+      min_val = a[i]
+    elif max_val < a[i]:
+      max_val = a[i]
+  return min_val,max_val
+minimum,maximum = min_max_el_array(a)
+print("Minimum Value : ",minimum)
+print("Maximum Value : ",maximum)
+
+
+#Same as above we just write two different functions 
+a = [3,5,4,1,9]
+def min_func(a):
+  min_val = a[0]
+  for i in range (len(a)):
+    if min_val > a[i]:
+      min_val = a[i]
+  return min_val
+def max_func(a):
+  max_val = a[0]
+  for i in range (len(a)):
+    if max_val < a[i]:
+      max_val = a[i]
+  return max_val
+  
+minimum = min_func(a)
+maximum = max_func(a)
+print("Minimum Value : ",minimum)
+print("Maximum Value : ",maximum)
+
+#till yet....1st method is going on
+
+# Method 2 using max and min built-in functions
+a = [3,5,4,1,9]
+print("Minimum Value : ",min(a))
+print("Maximum Value : ",max(a))
+
+# Method 3 using sort function
+a = [3,5,4,1,9]
+a.sort()
+print("Minimum Value : ",a[0])
+print("Maximum Value : ",a[-1])
+
+
+#Remaining Things to do
+#Method -4 ---Pairwise comparison (optimized)
+#Method -5 ---Tournament method (divide & conquer)
+#and also in method 3 , do sorting without using sort() built-in function.......we should do sort
+    #a. linear
+    #b. Binary
+    #c. serach more
