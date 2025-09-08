@@ -1,1 +1,27 @@
+# method 1 using sort first and then just print the value
+#  https://www.geeksforgeeks.org/problems/kth-smallest-element5635/1
+def kth_smallest(arr, k):
+    arr.sort()
+    return arr[k-1]
+print(kth_smallest([7,10,4,3,20,15],3))
+
+
+# Method 2 - k times loop chalaya, inner loop mein min find kiya then use remove kiya...and jo last remove hua tha use print karaya
+def kth_smallest(a, k):
+    for i in range(k):
+        # Step 1: assume first element is min
+        min_val = a[0]
+
+        # Step 2: find actual minimum in the array
+        for j in range(len(a)):
+            if a[j] < min_val:
+                min_val = a[j]
+
+        # Step 3: remove the found minimum
+        a.remove(min_val)
+
+    return min_val  # kth smallest element
+# Test
+print(kth_smallest([7,10,4,3,20,15], 3))  # Output: 7
+print(kth_smallest([2,3,1,20,15], 4))     # Output: 15
 
