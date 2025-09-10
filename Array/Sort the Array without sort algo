@@ -23,4 +23,25 @@ class Solution:
             idx += 1
         return arr
 
-#remaining
+# Same question without function
+arr = [2,1,0,0,2,1,1,0,2]
+count0 = count1 = count2 = 0
+for num in arr:
+    if num == 0:
+        count0 += 1
+    elif num == 1:
+        count1 += 1
+    else:
+        count2 += 1
+idx = 0
+for i in range(count0):
+    arr[i] = 0
+    idx += 1
+for i in range(count1):
+    arr[idx] = 1
+    idx += 1
+for i in range(count2):
+    arr[idx] = 2
+    idx += 1
+print(arr)
+
