@@ -1,1 +1,74 @@
+#Method 1
+# Best one!
+a = [-1,2,5,-9,6,4]
+idx = 0
+for i in range(len(a)):
+  if a[i]  < 0:                         #jaise hi -ve no aaya......vaise hi values swap ho gyi aur +ve pe toh vo traverse hi kar rha tha
+    a[i],a[idx] = a[idx], a[i]
+    idx += 1
+print(a)
 
+# Same ques in function
+def func(arr):
+  idx = 0
+  for i in range(len(arr)):
+    if arr[i] < 0:
+      arr[i], arr[idx] = arr[idx], arr[i]
+      idx += 1
+  return arr
+arr = [-2,-6,7,-5,9]
+print(func(arr))
+
+# Same function but output in the form that the question wants
+def func(arr):
+  idx = 0
+  for i in range(len(arr)):
+    if arr[i] < 0:
+      arr[i], arr[idx] = arr[idx], arr[i]
+      idx += 1
+  return arr
+
+arr = [-2,-6,7,-5,9]
+
+#method 1a
+ans = func(arr)
+for num in ans:
+  print(num, end = " ")
+# print()
+
+# method1b
+# arr = [-2,-6,7,-5,9]
+# ans = func(arr)
+# print(*ans)
+
+
+# Method - 2
+a = [-1,3,-6,4]
+a.sort()
+print(a)
+
+# Method - 3
+#-ve nos ko ek new array mein aur +ve nos nos ko dusri new array mein daal diya aur last mein concatenate kar diya 
+a = [9,-7,4,-2]
+negatives = []
+positives = []
+for num in a:
+  if num < 0:
+    negatives.append(num)
+  else:
+    positives.append(num)
+print(negatives + positives)
+
+# Method - 4
+# Using two pointer.....but it is also similar....because we need to use swap
+a = [-1,2,5,-9,6,4]
+left = 0
+right = len(a) - 1
+while left < right:
+  while left < right and a[left] < 0:
+    left += 1
+  while left < right and a[right] >= 0:
+    right -= 1
+  if left < right:
+    a[left], a[right] = a[right], a[left]
+print(a)
