@@ -39,3 +39,17 @@ u = set(a)
 for num in b:
   u.add(num)           #this will remove duplicates
 print(list(u))
+
+
+
+#Intersection
+a = [2,4,9,7,4]
+b = [4,2,6,7]
+u=[]
+for i in range(len(a)):
+  for j in range(len(b)):
+    if a[i] == b[j]:
+      u.append(a[i])
+intersection = set(u)
+print(list(intersection))
+
