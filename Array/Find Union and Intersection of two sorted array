@@ -1,1 +1,41 @@
+class Solution:    
+    def findUnion(self, a, b):
+        # code here
+        u = []
+        for i in range(len(a)):
+            if a[i] not in u:
+                u.append(a[i])
+        for i in range(len(b)):
+            if b[i] not in u:
+                u.append(b[i])
+        return u
+#in this, out of 1111 test cases 1110 test cases passed.....but 1 test case is unable to pass because of TLE....so we optimize our code
 
+
+class Solution:    
+    def findUnion(self, a, b):
+        # code here
+        u = list(set(a)) + list(set(b))
+        ans = []
+        for i in range(len(u)):
+            if u[i] not in ans:
+                ans.append(u[i])
+        return ans
+  #Same problem with this code.....TLE
+
+#https://www.geeksforgeeks.org/problems/union-of-two-arrays3538/1
+class Solution:    
+    def findUnion(self, a, b):
+        # code here
+        u = set(a) | set(b)
+        ans = list(u)
+        return ans
+  #finally this code submitted
+
+a = [2,4,9,7,4]
+b = [4,2,6,7]
+
+u = set(a)
+for num in b:
+  u.add(num)           #this will remove duplicates
+print(list(u))
