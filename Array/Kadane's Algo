@@ -1,19 +1,60 @@
-def kadane(arr):
-    current_sum = arr[0]
-    max_sum = arr[0]
+# https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+class Solution:
+    def maxSubarraySum(self, arr):
+        # Code here
+        curr_sum = 0
+        max_sum = float('-inf')
+        for i in range(len(arr)):
+            curr_sum += arr[i]
+            max_sum = max(curr_sum, max_sum)
+            if curr_sum < 0:
+                curr_sum = 0
+        return max_sum
 
-    print(f"Start → current_sum = {current_sum}, max_sum = {max_sum}")
 
-    for i in range(1, len(arr)):
-        current_sum = max(arr[i], current_sum + arr[i])
-        max_sum = max(max_sum, current_sum)
+#Brute force Approach
+#Step - 1
+#find all the possible subarrays
+def all_subarray(a):
+  n = len(a)
+  for start in range(n):
+    for end in range(start,n):
+      print(a[start:end+1])
+print(all_subarray([1,2,3,4,5]))
 
-        print(f"i={i}, arr[i]={arr[i]}, current_sum={current_sum}, max_sum={max_sum}")
+# Step - 2
+#find sum of all subarrays
+def all_subarray_sum(a):
+  n = len(a)
+  curr_sum = 0
+  for i in range(n):
+    for j in range(i,n):
+      curr_sum += a[j]
+      print(a[i:j+1], "sum = ", curr_sum)
+print(all_subarray_sum([1,2,3,4,5]))
 
-    return max_sum
+# Step - 3
+#find max sum of all subarrays
+def max_subarray_sum(a):
+  n = len(a)
+  # max_sum = 0                #it works with That works fine when the array has at least one positive number.But if the array was all negative, e.g. [-2, -3, -1], your code would return 0 instead of -1.
+  max_sum = float('-inf')      #it represents -infinity 
+  for i in range(n):
+    curr_sum = 0
+    for j in range(i,n):
+      curr_sum += a[j]
+      max_sum = max(max_sum, curr_sum)
+  return max_sum
+max_subarray_sum([2, 3, -8, 7, -1, 2, 3])
 
-
-# Example
-arr = [-2, -3, 4, -1, -2, 1, 5, -3]
-print("Maximum Subarray Sum =", kadane(arr))
-
+#now this is optimized Kadanes approach
+def kadane(a):
+  curr_sum = 0
+  max_sum = float('-inf')
+  for i in range(len(a)):
+    curr_sum += a[i]
+    max_sum = max(curr_sum, max_sum)
+    if curr_sum < 0:
+      curr_sum = 0
+  return max_sum
+kadane([2, 3, -8, 7, -1, 2, 3])
