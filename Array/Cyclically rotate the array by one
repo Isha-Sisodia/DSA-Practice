@@ -1,0 +1,6 @@
+https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1
+class Solution:
+    def rotate(self, arr):
+        for i in range(len(arr)):
+            arr[i], arr[-1] = arr[-1], arr[i]
+        return arr
