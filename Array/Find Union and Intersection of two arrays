@@ -41,6 +41,13 @@ for num in b:
 print(list(u))
 
 
+# https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
+# this code wont give tle
+class Solution:
+    def findUnion(self, a, b):
+        for i in range(len(b)):
+            a.append(b[i])
+        return sorted(list(set(a)))
 
 #Intersection
 a = [2,4,9,7,4]
