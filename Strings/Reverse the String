@@ -1,4 +1,17 @@
-# Method 1
+#q1
+#https://leetcode.com/problems/reverse-string/submissions/1912194763/
+class Solution(object):
+    def reverseString(self, s):
+        left = 0
+        right = len(s) - 1
+        while left < right :
+            s[left] , s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+           
+
+# Method - 1    # BEST & INTERVIEW-READY
+# q1
 def reverseString(s):
     left, right = 0, len(s) - 1
 
@@ -9,3 +22,23 @@ def reverseString(s):
 s = ["h","e","l","l","o"]
 reverseString(s)
 print(s)
+
+# Method - 2
+s = ["h","e","l","l","o"]
+print(s[::-1])
+
+# Method - 3
+s = ["h","e","l","l","o"]
+s.reverse()
+print(s)
+
+# Method 4
+#Using a loop + extra list
+def reverseString(s):
+    temp = ["o", "l", "l", "e", "h"]
+    s[:] = temp   #  modifies original list
+s = ["h","e","l","l","o"]
+reverseString(s)
+print(s)
+
+#  Method 5: Recursion (NOT ideal)
