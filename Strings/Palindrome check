@@ -21,3 +21,6 @@ def isPalindrome(s):
     return True
 s = "abba"
 print(isPalindrome(s))
+
+#my google collab link is
+https://colab.research.google.com/drive/17wmbGv1hiLdCbF1qqDI7U_NcF3RU9SaZ
