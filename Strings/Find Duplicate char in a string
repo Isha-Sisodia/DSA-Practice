@@ -1,0 +1,21 @@
+#ques  3
+https://www.geeksforgeeks.org/dsa/print-all-the-duplicates-in-the-input-string/
+Input: s = "geeksforgeeks"
+Output: ['e', 4], ['g', 2], ['k', 2], ['s', 2]
+Explanation: Characters e, g, k, and s appear more than once. Their counts are shown in order of first occurrence.
+Solution - 
+
+s = "geeksforgeeks"
+freq = {}
+result = []
+seen = set()
+for ch in s:
+  freq[ch] = freq.get(ch, 0 ) +1
+for ch in s:
+  if freq[ch] > 1 and ch not in seen:
+    result.append([ch, freq[ch]])
+    seen.add(ch)
+print(result)
+
+#my collab notebook link is 
+https://colab.research.google.com/drive/1wmIIYkj5ZYKgsgt7KgDsjc523VNcJFVh#scrollTo=l7rvFS10mmid
